@@ -8,7 +8,7 @@ fn test_01() {
 
     //使用option转换为普通类型的时候
     match some_str2 {
-        Some(value) => println!("获取的值是：{}", value),
+        Some(value) => println!("获取的值是：{value}"),
         None => println!("是一个空值"),
     };
 }
