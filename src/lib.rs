@@ -6,6 +6,8 @@ pub mod a_vec_test;
 pub mod a_error_test;
 pub mod a_map_test;
 
+pub mod a_struct_test;
+
 // ====== 方式二（导出模块下所有子内容） =====
 // mod vec_test;
 
