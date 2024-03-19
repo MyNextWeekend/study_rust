@@ -1,3 +1,4 @@
+#[derive(Debug)]
 struct Student {
     name: String,
     age: i32,
@@ -20,7 +21,11 @@ impl Student {
     fn set_name(&mut self, name: String) {
         self.name = name
     }
-
+    //丢失所有权
+    fn print(self){
+        println!("name:{},age:{},six:{}",self.name,self.age,self.six)
+    }
+    // 函数
     fn avg_age(students: Vec<&Student>) -> f32 {
         let mut sum = 0.0;
         for &student in students.iter() {
@@ -42,4 +47,7 @@ fn test_01() {
     println!("平均年龄是：{}",Student::avg_age(stu.clone()));
     println!("s1_name:{},s2_name:{},s3_name:{}",s1.get_name(),s2.get_name(),s3.get_name());
     println!("平均年龄是：{}",Student::avg_age(stu));
+    print!("{:?}",s1);
+    s1.print();
+    // print!("{:?}",s1);
 }
