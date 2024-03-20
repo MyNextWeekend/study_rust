@@ -1,12 +1,12 @@
 #[derive(Debug)]
-struct Student {
+pub struct Student {
     name: String,
     age: i32,
     six: i32,
 }
 
 impl Student {
-    fn new(name: String, age: i32, six: i32) -> Student {
+    pub fn new(name: String, age: i32, six: i32) -> Student {
         Student {
             name: name,
             age: age,
@@ -14,7 +14,7 @@ impl Student {
         }
     }
     // 不可变借用
-    fn get_name(&self) -> String {
+    pub fn get_name(&self) -> String {
         self.name.clone()
     }
     // 可变借用

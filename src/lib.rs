@@ -3,6 +3,4 @@
 pub mod study;
 pub mod study_other;
 // ====== 方式二（导出模块下所有子内容） =====
-// mod vec_test;
-
-// pub use vec_test::*;
+pub use study::*;
