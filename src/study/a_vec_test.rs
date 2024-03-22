@@ -14,11 +14,11 @@ fn test_01() {
     v.push("blanan");
 
     // 遍历的时候是借用v，否则会丢失所有权
-    for i in &v {
+    for &i in &v {
         println!("动态数组中的值是：{}", i);
     }
     v.push("AAAAA");
-    for i in &v {
+    for &i in &v {
         println!("动态数组中的值是：{}", i);
     }
 }
