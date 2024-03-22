@@ -12,7 +12,7 @@ fn test_01() {
     //因为 get 返回 Option<V>，所以结果被装进 Some；如果某个键在哈希 map 中没有对应的值，get 会返回 None
     let value = map.get("k3");
 
-    // 如果map中没有 k5 就插入，值为0 
+    // 如果map中没有 k5 就插入，值为0
     let k5_value = map.entry(String::from("k5")).or_insert(0);
     *k5_value += 1; // 对值进行 +1 操作
 
