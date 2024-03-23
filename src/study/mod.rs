@@ -5,5 +5,6 @@ pub mod a_io_test;
 pub mod a_map_test;
 pub mod a_option_test;
 pub mod a_struct_test;
+pub mod a_thread_test;
 pub mod a_trait_test;
 pub mod a_vec_test;
