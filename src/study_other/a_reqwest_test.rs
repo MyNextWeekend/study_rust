@@ -19,8 +19,9 @@ fn request(url: String) -> Result<String, Box<dyn std::error::Error>> {
 }
 
 //异步请求 async
-#[tokio::main] //声明异步开始的位置
-#[test]
+//将 async fn main() 转换为同步 fn main() ，初始化一个运行时实例并执行异步main函数
+#[tokio::main]
+#[test] 
 async fn test_02() {
     let url = "https://httpbin.org/ip".to_string();
     let res = async_request(&url).await;
