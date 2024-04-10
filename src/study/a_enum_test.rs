@@ -23,21 +23,28 @@ impl IpAddrKind {
     }
 }
 
-#[test]
-fn test_01() {
-    let home = IpAddrWithStr {
-        kind: IpAddr::V4,
-        address: String::from("127.0.0.1"),
-    };
-    let loopback = IpAddrWithStr {
-        kind: IpAddr::V6,
-        address: String::from("::1"),
-    };
-}
 
-#[test]
-fn test_02() {
-    let home = IpAddrKind::V4(127, 0, 0, 1);
-    let loopback = IpAddrKind::V6(String::from("::1"));
-    home.call() //调用枚举的方法
+#[cfg(test)]
+mod enum_test {
+    use crate::a_enum_test::{IpAddr, IpAddrKind, IpAddrWithStr};
+
+    #[test]
+    fn test_01() {
+        let _home = IpAddrWithStr {
+            kind: IpAddr::V4,
+            address: String::from("127.0.0.1"),
+        };
+        let _loopback = IpAddrWithStr {
+            kind: IpAddr::V6,
+            address: String::from("::1"),
+        };
+    }
+
+    #[test]
+    fn test_02() {
+        let home = IpAddrKind::V4(127, 0, 0, 1);
+        let loopback = IpAddrKind::V6(String::from("::1"));
+        home.call();//调用枚举的方法
+        loopback.call();
+    }
 }

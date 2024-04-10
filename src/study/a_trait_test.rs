@@ -17,11 +17,16 @@ impl Descriptive for Person {
     }
 }
 
-#[test]
-fn test01() {
-    let cali = Person {
-        name: String::from("Cali"),
-        age: 24,
-    };
-    println!("{}", cali.describe());
+#[cfg(test)]
+mod trait_test {
+    use crate::a_trait_test::{Descriptive, Person};
+
+    #[test]
+    fn test01() {
+        let cali = Person {
+            name: String::from("Cali"),
+            age: 24,
+        };
+        println!("{}", cali.describe());
+    }
 }

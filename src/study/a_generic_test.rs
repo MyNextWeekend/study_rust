@@ -19,6 +19,7 @@ struct Proper<T> {
     age: i32,
     hobby: T,
 }
+
 impl<T> Proper<T> {
     fn new(hobby: T) -> Self {
         Proper {
@@ -29,11 +30,17 @@ impl<T> Proper<T> {
     }
 }
 
-#[test]
-fn test_01() {
-    let a = [2, 4, 6, 3, 1];  
-    println!("max = {}", max(&a));
+#[cfg(test)]
+mod generic_test {
+    use crate::a_generic_test::{max, Proper};
 
-    let user = Proper::new(vec!["唱".to_string(),"跳".to_string(),"rap".to_string()]);
-    println!("{} {} {}",user.age,user.name,user.hobby[0])
+    #[test]
+    fn test_01() {
+        let a = [2, 4, 6, 3, 1];
+        println!("max = {}", max(&a));
+
+        let user = Proper::new(vec!["唱".to_string(), "跳".to_string(), "rap".to_string()]);
+        println!("{} {} {}", user.age, user.name, user.hobby[0])
+    }
 }
+

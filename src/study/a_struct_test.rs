@@ -35,29 +35,35 @@ impl Student {
     }
 }
 
-#[test]
-fn test_01() {
-    let mut s1 = Student::new(String::from("张三"), 18, 1);
-    let s2 = Student::new(String::from("莉丝"), 20, 2);
-    let s3 = Student::new(String::from("王五"), 22, 1);
-    s1.set_name(String::from("新章三"));
+#[cfg(test)]
+mod struct_test {
+    use crate::a_struct_test::Student;
 
-    println!(
-        "s1_name:{},s2_name:{},s3_name:{}",
-        s1.get_name(),
-        s2.get_name(),
-        s3.get_name()
-    );
-    let stu = vec![&s1, &s2, &s3];
-    println!("平均年龄是：{}", Student::avg_age(stu.clone()));
-    println!(
-        "s1_name:{},s2_name:{},s3_name:{}",
-        s1.get_name(),
-        s2.get_name(),
-        s3.get_name()
-    );
-    println!("平均年龄是：{}", Student::avg_age(stu));
-    print!("{:?}", s1);
-    s1.print();
-    // print!("{:?}",s1);
+    #[test]
+    fn test_01() {
+        let mut s1 = Student::new(String::from("张三"), 18, 1);
+        let s2 = Student::new(String::from("莉丝"), 20, 2);
+        let s3 = Student::new(String::from("王五"), 22, 1);
+        s1.set_name(String::from("新章三"));
+
+        println!(
+            "s1_name:{},s2_name:{},s3_name:{}",
+            s1.get_name(),
+            s2.get_name(),
+            s3.get_name()
+        );
+        let stu = vec![&s1, &s2, &s3];
+        println!("平均年龄是：{}", Student::avg_age(stu.clone()));
+        println!(
+            "s1_name:{},s2_name:{},s3_name:{}",
+            s1.get_name(),
+            s2.get_name(),
+            s3.get_name()
+        );
+        println!("平均年龄是：{}", Student::avg_age(stu));
+        print!("{:?}", s1);
+        s1.print();
+        // print!("{:?}",s1);
+    }
 }
+
