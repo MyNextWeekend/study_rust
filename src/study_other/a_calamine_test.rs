@@ -1,6 +1,6 @@
 #[cfg(test)]
 mod calamine_test {
-    use calamine::{Data, Error, open_workbook, Range, RangeDeserializerBuilder, Reader, Xlsx, XlsxError};
+    use calamine::{open_workbook, Reader, Xlsx};
 
     #[test]
     fn test01() {

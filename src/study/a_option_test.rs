@@ -3,9 +3,9 @@ mod option_test {
     #[test]
     fn test_01() {
         // 将None赋值给一个option类型的变量的时候，需要显示指明option的类型
-        let some_null: Option<String> = None;
+        let some_null = None;
         // 如果选项包含一个值，则返回该选项，否则返回提供的值
-        let option = some_null.or(Some("996".into()));
+        let option: Option<String> = some_null.or(Some("996".into()));
         assert_eq!(option, Some("996".into()));
 
 
@@ -18,8 +18,7 @@ mod option_test {
 
 
         //使用option转换为普通类型的时候
-        let some_str2: Option<String> = Some("好好学习，天天向上".into());
-        match some_str2 {
+        match Some::<String>("好好学习，天天向上".into()) {
             Some(value) => println!("获取的值是：{value}"),
             None => println!("是一个空值"),
         };
