@@ -37,7 +37,7 @@ impl Student {
 
 #[cfg(test)]
 mod struct_test {
-    use crate::a_struct_test::Student;
+    use crate::test_struct::Student;
 
     #[test]
     fn test_01() {

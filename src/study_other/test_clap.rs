@@ -14,7 +14,7 @@ struct Args {
 #[cfg(test)]
 mod clap_test {
     use clap::Parser;
-    use crate::study_other::a_clap_test::Args;
+    use crate::study_other::test_clap::Args;
 
     #[test]
     fn test01() {

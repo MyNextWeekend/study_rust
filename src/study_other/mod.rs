@@ -1,4 +1,4 @@
-pub mod a_reqwest_test;
-pub mod a_serde_test;
-pub mod a_calamine_test;
-mod a_clap_test;
+pub mod test_reqwest;
+pub mod test_serde;
+pub mod test_calamine;
+pub mod test_clap;

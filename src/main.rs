@@ -1,4 +1,4 @@
-use study_rust::a_struct_test::Student;
+use study_rust::test_struct::Student;
 
 fn main() {
     let s = Student::new("name".to_string(), 18, 1);

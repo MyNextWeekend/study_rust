@@ -23,7 +23,7 @@ impl Proper {
 
 #[cfg(test)]
 mod serde_test {
-    use crate::study_other::a_serde_test::Proper;
+    use crate::study_other::test_serde::Proper;
 
     #[test]
     fn test_01() {

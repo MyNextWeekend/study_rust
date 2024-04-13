@@ -9,7 +9,7 @@ fn is_even(number: i32) -> Result<bool, String> {
 
 #[cfg(test)]
 mod error_test {
-    use crate::a_error_test::is_even;
+    use crate::test_error::is_even;
 
     #[test]
     fn test_01() {
