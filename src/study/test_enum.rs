@@ -25,8 +25,8 @@ mod enum_test {
             kind: IpAddr::V6,
             address: String::from("::1"),
         };
-        println!("ip{:?}端口是:{}", home.kind, home.address);
-        println!("ip{:?}端口是:{}", loopback.kind, loopback.address);
+        println!("ip类型: {:?} 地址是:{}", home.kind, home.address);
+        println!("ip类型: {:?} 地址是:{}", loopback.kind, loopback.address);
     }
 
     // 方式三：将数据附加到枚举的变体中, 优点：不需要额外使用struct，每个变体拥有不同的类型以及关联的数量
