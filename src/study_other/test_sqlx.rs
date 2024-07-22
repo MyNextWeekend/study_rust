@@ -59,8 +59,8 @@ mod sqlx_test {
         Database::init().await?;
 
         match Database::get_user().await {
-            Ok(users) => {}
-            Err(e) => { println!("{:?}", e) }
+            Ok(users) => { println!("查询的结果是：{:?}", users) }
+            Err(e) => { println!("出现异常是：{:?}", e) }
         }
         Ok(())
     }
