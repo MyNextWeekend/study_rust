@@ -4,3 +4,4 @@ pub mod test_calamine;
 pub mod test_clap;
 mod test_thiserror;
 mod test_anyhow;
+mod test_sqlx;
