@@ -34,34 +34,33 @@ impl Database {
     }
 
     //查询sql
-    pub async fn get_user() -> Result<Vec<User>, sqlx::Error> {
+    pub async fn get_user<T: Send + Unpin>() -> Result<Vec<T>, sqlx::Error> {
         let pool = Database::get_pool().await;
-        let users: Vec<User> = sqlx::query_as(
+        let users: Vec<T> = sqlx::query_as(
             "select id,name,email from user").fetch_all(&pool).await?;
         Ok(users)
     }
 }
 
-#[derive(Debug, sqlx::FromRow)]
-struct User {
-    id: i32,
-    name: String,
-    email: String,
-}
 
 #[cfg(test)]
 mod sqlx_test {
     use crate::study_other::test_sqlx::{Database};
+    #[derive(Debug, sqlx::FromRow)]
+    struct User {
+        id: i32,
+        name: String,
+        email: String,
+    }
 
     #[tokio::test]
-    async fn test_01() -> Result<(), sqlx::Error> {
+    async fn test_01() {
         // 初始化数据库
-        Database::init().await?;
+        Database::init().await.expect("数据库初始化异常:");
 
-        match Database::get_user().await {
+        match Database::get_user::<User>().await {
             Ok(users) => { println!("查询的结果是：{:?}", users) }
-            Err(e) => { println!("出现异常是：{:?}", e) }
+            Err(e) => { println!("获取user表信息异常：：{:?}", e) }
         }
-        Ok(())
     }
 }
