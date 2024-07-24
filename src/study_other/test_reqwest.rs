@@ -1,6 +1,7 @@
 // Reqwest第三方包学习
 
 use std::collections::HashMap;
+use serde::de::DeserializeOwned;
 
 struct HttpClient;
 
@@ -25,7 +26,7 @@ impl HttpClient {
     }
 
     // 异步post请求
-    pub async fn post<T: std::fmt::Debug>(url: &str, body: &HashMap<String, String>) -> Result<T, Box<dyn std::error::Error>> {
+    pub async fn post<T: std::fmt::Debug+ DeserializeOwned>(url: &str, body: &HashMap<String, String>) -> Result<T, Box<dyn std::error::Error>> {
         let client = reqwest::Client::new(); //可以自定义客户端，重复利用
         let resp = client
             .post(url)

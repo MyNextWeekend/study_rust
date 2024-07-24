@@ -23,8 +23,8 @@ impl Database {
         pool_guard.as_ref().expect("Database pool is not initialized").clone()
     }
 
-    // 插入sql，这里不能做到通用，一个sql一个方法
-    pub async fn insert_user(name: &str, email: &str) -> Result<i64, sqlx::Error> {
+    // 插入sql
+    pub async fn insert(name: &str, email: &str) -> Result<i64, sqlx::Error> {
         let pool = Database::get_pool().await;
         let row: (i64,) = sqlx::query_as(
             "insert into user (name,email) values($1,$2)")
@@ -34,10 +34,10 @@ impl Database {
     }
 
     //查询sql
-    pub async fn get_user<T: Send + Unpin>() -> Result<Vec<T>, sqlx::Error> {
+    pub async fn select<T>() -> Result<Vec<T>, sqlx::Error> {
         let pool = Database::get_pool().await;
-        let users: Vec<T> = sqlx::query_as(
-            "select id,name,email from user").fetch_all(&pool).await?;
+        let users = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await?;
+
         Ok(users)
     }
 }
@@ -58,7 +58,7 @@ mod sqlx_test {
         // 初始化数据库
         Database::init().await.expect("数据库初始化异常:");
 
-        match Database::get_user::<User>().await {
+        match Database::select::<Vec<User>>().await {
             Ok(users) => { println!("查询的结果是：{:?}", users) }
             Err(e) => { println!("获取user表信息异常：：{:?}", e) }
         }
