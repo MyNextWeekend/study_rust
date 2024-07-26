@@ -1,5 +1,5 @@
 use once_cell::sync::Lazy;
-use sqlx::{MySql, Pool};
+use sqlx::{FromRow, MySql, Pool};
 use sqlx::mysql::MySqlPoolOptions;
 use tokio::sync::Mutex;
 
@@ -33,13 +33,13 @@ impl Database {
         Ok(row.0)
     }
 
-    //查询sql
-    pub async fn select<T>() -> Result<Vec<T>, sqlx::Error> {
-        let pool = Database::get_pool().await;
-        let users = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await?;
-
-        Ok(users)
-    }
+    // //查询sql
+    // pub async fn select<T: Send + Unpin+ for<'r> sqlx::FromRow<'r, sqlx::mysql::MySqlRow>>() -> Result<Vec<T>, sqlx::Error> {
+    //     let pool = Database::get_pool().await;
+    //     let users = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await?;
+    //
+    //     Ok(users)
+    // }
 }
 
 
@@ -58,9 +58,9 @@ mod sqlx_test {
         // 初始化数据库
         Database::init().await.expect("数据库初始化异常:");
 
-        match Database::select::<Vec<User>>().await {
-            Ok(users) => { println!("查询的结果是：{:?}", users) }
-            Err(e) => { println!("获取user表信息异常：：{:?}", e) }
-        }
+        // match Database::select::<Vec<User>>().await {
+        //     Ok(users) => { println!("查询的结果是：{:?}", users) }
+        //     Err(e) => { println!("获取user表信息异常：：{:?}", e) }
+        // }
     }
 }
