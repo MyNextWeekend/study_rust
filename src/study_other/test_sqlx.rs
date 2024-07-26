@@ -33,18 +33,19 @@ impl Database {
         Ok(row.0)
     }
 
-    // //查询sql
-    // pub async fn select<T: Send + Unpin+ for<'r> sqlx::FromRow<'r, sqlx::mysql::MySqlRow>>() -> Result<Vec<T>, sqlx::Error> {
-    //     let pool = Database::get_pool().await;
-    //     let users = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await?;
-    //
-    //     Ok(users)
-    // }
+    //查询sql
+    pub async fn select<T: Send + Unpin + for<'r> sqlx::FromRow<'r, sqlx::mysql::MySqlRow>>() -> Result<Vec<T>, sqlx::Error> {
+        let pool = Database::get_pool().await;
+        let users = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await?;
+
+        Ok(users)
+    }
 }
 
 
 #[cfg(test)]
 mod sqlx_test {
+    use sqlx::Error;
     use crate::study_other::test_sqlx::{Database};
     #[derive(Debug, sqlx::FromRow)]
     struct User {
@@ -58,9 +59,10 @@ mod sqlx_test {
         // 初始化数据库
         Database::init().await.expect("数据库初始化异常:");
 
-        let pool = Database::get_pool().await;
-        let users: Vec<User> = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await.unwrap();
-
-        println!("查询的结果是:{:?}", users)
+        let result = Database::select::<User>().await;
+        match result {
+            Ok(res) => { println!("查询的结果是:{:?}", res) }
+            Err(err) => { println!("收到一个错误:{}", err) }
+        }
     }
 }
