@@ -58,9 +58,9 @@ mod sqlx_test {
         // 初始化数据库
         Database::init().await.expect("数据库初始化异常:");
 
-        // match Database::select::<Vec<User>>().await {
-        //     Ok(users) => { println!("查询的结果是：{:?}", users) }
-        //     Err(e) => { println!("获取user表信息异常：：{:?}", e) }
-        // }
+        let pool = Database::get_pool().await;
+        let users: Vec<User> = sqlx::query_as("select id,name,email from user").fetch_all(&pool).await.unwrap();
+
+        println!("查询的结果是:{:?}", users)
     }
 }
