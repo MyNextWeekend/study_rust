@@ -8,3 +8,4 @@ pub mod test_struct;
 pub mod test_thread;
 pub mod test_trait;
 pub mod test_vec;
+mod test_time;
