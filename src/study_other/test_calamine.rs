@@ -22,6 +22,6 @@ mod calamine_test {
 
     #[test]
     fn test01() {
-        read_xlsx("/Users/weekend/Desktop/test.xlsx");
+        read_xlsx("/Users/weekend/Desktop/test.xlsx").expect("TODO: panic message");
     }
 }
