@@ -4,7 +4,7 @@ use calamine::{open_workbook, Error, Xlsx, Reader, RangeDeserializerBuilder};
 pub fn read_xlsx(file_path: &str) -> Result<(), Error> {
     let mut work_book: Xlsx<_> = open_workbook(file_path)?;
     let sheet = work_book.worksheet_range("Sheet1")
-        .map_err(|_| calamine::Error::Msg("Cannot find Sheet1"))?;
+        .map_err(|_| Error::Msg("Cannot find Sheet1"))?;
     let iter_records =
         RangeDeserializerBuilder::with_headers(&["name", "age"]).from_range(&sheet)?;
 
