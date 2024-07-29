@@ -35,7 +35,7 @@ mod thiserror_test {
     fn test01() {
         match read_file() {
             Ok(_) => { println!("666") }
-            Err(err) => { println!("错误的类型是:{}", err) }
+            Err(err) => { println!("错误的类型是:{}", err) } // 错误的类型是:No such file or directory (os error 2)
         }
     }
     #[test]
