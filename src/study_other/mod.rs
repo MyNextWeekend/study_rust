@@ -6,3 +6,4 @@ pub mod test_thiserror;
 pub mod test_anyhow;
 pub mod test_sqlx;
 pub mod test_chrono;
+mod test_env_logger;
