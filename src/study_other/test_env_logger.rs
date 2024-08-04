@@ -30,7 +30,7 @@ fn init_logger() {
                 lever_style.value(record.level()), // 样式使用 或者不使用record.level()
                 style.value(record.module_path().unwrap_or("<unnamed>")),
                 record.line().unwrap_or(0),
-                &record.args()
+                record.args()
             )
         })
         .filter(None, LevelFilter::Debug)
