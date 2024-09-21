@@ -1,7 +1,6 @@
 #[cfg(test)]
 mod chrono_test {
-    use std::fmt::{Debug, Display};
-    use chrono::{Local, TimeZone, Utc, NaiveDateTime, NaiveDate, Months, Days};
+    use chrono::{Local, Utc, NaiveDateTime, NaiveDate, Months, Days};
 
     #[test]
     fn test01() {

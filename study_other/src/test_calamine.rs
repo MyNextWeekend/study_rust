@@ -18,7 +18,7 @@ pub fn read_xlsx(file_path: &str) -> Result<(), Error> {
 
 #[cfg(test)]
 mod calamine_test {
-    use crate::study_other::test_calamine::read_xlsx;
+    use super::read_xlsx;
 
     #[test]
     fn test01() {

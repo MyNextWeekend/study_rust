@@ -1,5 +1,5 @@
 use once_cell::sync::Lazy;
-use sqlx::{FromRow, MySql, Pool};
+use sqlx::{MySql, Pool};
 use sqlx::mysql::MySqlPoolOptions;
 use tokio::sync::Mutex;
 
@@ -45,8 +45,7 @@ impl Database {
 
 #[cfg(test)]
 mod sqlx_test {
-    use sqlx::Error;
-    use crate::study_other::test_sqlx::{Database};
+    use super::{Database};
     #[derive(Debug, sqlx::FromRow)]
     struct User {
         id: i32,

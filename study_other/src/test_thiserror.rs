@@ -29,7 +29,7 @@ fn read_file() -> Result<(), DataStoreError> {
 mod thiserror_test {
     use std::io;
     use std::io::ErrorKind;
-    use crate::study_other::test_thiserror::{DataStoreError, read_file};
+    use super::{DataStoreError, read_file};
 
     #[test]
     fn test01() {

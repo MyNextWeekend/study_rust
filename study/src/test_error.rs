@@ -12,6 +12,7 @@ mod error_test {
     use crate::test_error::is_even;
 
     #[test]
+    #[should_panic]
     fn test_01() {
         // unwrap 是Result<T,E>的方法，
         // 调用此方法的时候，如果是OK，返回OK中的对象，如果是Err枚举，在运行时会panic

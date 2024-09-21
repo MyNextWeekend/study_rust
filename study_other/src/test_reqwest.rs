@@ -1,7 +1,6 @@
 // Reqwest第三方包学习
 
 use std::collections::HashMap;
-use serde::de::DeserializeOwned;
 
 struct HttpClient;
 
@@ -40,7 +39,7 @@ impl HttpClient {
 #[cfg(test)]
 mod reqwest_test {
     use std::collections::HashMap;
-    use crate::study_other::test_reqwest::HttpClient;
+    use super::HttpClient;
 
     //同步请求
     #[test]

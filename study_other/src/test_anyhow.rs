@@ -10,7 +10,7 @@ fn get_cluster_info() -> Result<HashMap<String, String>> {
 
 #[cfg(test)]
 mod anyhow_test{
-    use crate::study_other::test_anyhow::get_cluster_info;
+    use super::get_cluster_info;
 
     #[test]
     fn test01(){
