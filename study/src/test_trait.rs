@@ -20,7 +20,7 @@ impl Biology for Person {
 
 #[cfg(test)]
 mod trait_test {
-    use crate::test_trait::{Biology, Person};
+    use super::*;
 
     #[test]
     fn test01() {

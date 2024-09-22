@@ -7,9 +7,10 @@ fn is_even(number: i32) -> Result<bool, String> {
     }
 }
 
+
 #[cfg(test)]
 mod error_test {
-    use crate::test_error::is_even;
+    use super::*;
 
     #[test]
     #[should_panic]

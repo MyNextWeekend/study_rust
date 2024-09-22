@@ -37,7 +37,7 @@ impl Student {
 
 #[cfg(test)]
 mod struct_test {
-    use super::Student;
+    use super::*;
 
     #[test]
     fn test_01() {

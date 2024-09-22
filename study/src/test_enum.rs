@@ -25,9 +25,11 @@ impl IpAddrKind {
         println!("值是:{:?}", self)
     }
 }
+
+
 #[cfg(test)]
 mod enum_test {
-    use super::{IpAddrWithStr, IpAddr, IpAddrKind};
+    use super::*;
 
     #[test]
     fn test_01() {

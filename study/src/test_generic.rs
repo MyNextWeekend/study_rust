@@ -1,8 +1,9 @@
 // 泛型学习
 
-// 泛型方法
+/// 泛型方法
 fn largest<T>(list: &[T]) -> Result<T, String>
-    where T: Ord + Copy
+where
+    T: Ord + Copy,
 {
     if list.len() == 0 {
         return Err("not enough arguments".into());
@@ -19,7 +20,7 @@ fn largest<T>(list: &[T]) -> Result<T, String>
 }
 
 
-// 泛型结构体
+/// 泛型结构体
 struct Proper<T> {
     name: String,
     age: i32,
@@ -36,9 +37,10 @@ impl<T> Proper<T> {
     }
 }
 
+
 #[cfg(test)]
 mod generic_test {
-    use crate::test_generic::{largest, Proper};
+    use super::*;
 
     #[test]
     fn test_01() {
