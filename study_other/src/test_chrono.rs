@@ -43,6 +43,12 @@ fn add_months(datetime: NaiveDateTime, months: i32) -> Option<NaiveDateTime> {
     }
 }
 
+fn do_001() {
+    let now1 = Utc::now(); // 获取 世界统一时间的现在时间
+    let now2 = Local::now(); // 获取当地时间的现在时间
+    println!("格式化为字符串:{}", now1.format("%Y-%m-%d %H:%M:%S"));
+    println!("格式化为字符串:{}", now2.format("%Y-%m-%d"));
+}
 
 #[cfg(test)]
 mod chrono_test {
@@ -50,10 +56,7 @@ mod chrono_test {
 
     #[test]
     fn test01() {
-        let now1 = Utc::now(); // 获取 世界统一时间的现在时间
-        let now2 = Local::now(); // 获取当地时间的现在时间
-        println!("格式化为字符串:{}", now1.format("%Y-%m-%d %H:%M:%S"));
-        println!("格式化为字符串:{}", now2.format("%Y-%m-%d"));
+        do_001()
     }
 
     #[test]

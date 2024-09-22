@@ -42,16 +42,21 @@ fn init_logger() {
     info!("env_logger init success")
 }
 
+fn do_001() {
+    init_logger();
+    trace!("trace");
+    debug!("this is a debug {}", "message");
+    info!("info");
+    error!("this is printed by default");
+}
+
+
 #[cfg(test)]
 mod env_logger_test {
     use super::*;
 
     #[test]
     fn test01() {
-        init_logger();
-        trace!("trace");
-        debug!("this is a debug {}", "message");
-        info!("info");
-        error!("this is printed by default");
+        do_001()
     }
 }
