@@ -1,8 +1,10 @@
-// 主要用于lib项目中，用于聚合多种错误
-
 use std::fs::File;
 use std::io;
 use thiserror::Error;
+
+
+// 主要用于lib项目中，用于聚合多种错误
+
 
 #[derive(Error, Debug)]
 pub enum DataStoreError {
@@ -25,11 +27,10 @@ fn read_file() -> Result<(), DataStoreError> {
     Ok(())
 }
 
+
 #[cfg(test)]
 mod thiserror_test {
-    use std::io;
-    use std::io::ErrorKind;
-    use super::{DataStoreError, read_file};
+    use super::*;
 
     #[test]
     fn test01() {
@@ -40,7 +41,7 @@ mod thiserror_test {
     }
     #[test]
     fn test02() {
-        let error1 = DataStoreError::IoError(io::Error::new(ErrorKind::Other, "oh no!"));
+        let error1 = DataStoreError::IoError(io::Error::new(io::ErrorKind::Other, "oh no!"));
         let error2 = DataStoreError::IoError(io::Error::from(io::ErrorKind::TimedOut));
         let error4 = DataStoreError::Redaction("今天".into());
         let error5 = DataStoreError::InvalidHeader { expected: "今天".into(), found: "明天".into() };

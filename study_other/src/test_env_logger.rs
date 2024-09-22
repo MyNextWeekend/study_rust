@@ -1,5 +1,8 @@
-use log::{info, Level, LevelFilter};
+use log::{Level, LevelFilter};
+use log::{debug, error, info, trace};
 use std::io::Write;
+
+
 fn init_logger() {
     let env = env_logger::Env::default().filter_or(env_logger::DEFAULT_FILTER_ENV, "debug");
 
@@ -41,8 +44,7 @@ fn init_logger() {
 
 #[cfg(test)]
 mod env_logger_test {
-    use log::{debug, error, info, trace};
-    use super::init_logger;
+    use super::*;
 
     #[test]
     fn test01() {

@@ -11,6 +11,13 @@ mod test_serde;
 mod test_sqlx;
 mod test_thiserror;
 
+use clap::Parser;
+use crate::test_clap::Args;
+
 fn main() {
-    println!("Hello from study_other!");
+    // 使用样例 - clap
+    let args = Args::parse();
+    for _ in 0..args.count {
+        println!("hello {}", args.name)
+    }
 }

@@ -45,7 +45,9 @@ impl Database {
 
 #[cfg(test)]
 mod sqlx_test {
-    use super::{Database};
+    use super::*;
+
+
     #[derive(Debug, sqlx::FromRow)]
     struct User {
         id: i32,

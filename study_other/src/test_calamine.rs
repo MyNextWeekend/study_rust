@@ -18,7 +18,7 @@ pub fn read_xlsx(file_path: &str) -> Result<(), Error> {
 
 #[cfg(test)]
 mod calamine_test {
-    use super::read_xlsx;
+    use super::*;
 
     #[test]
     fn test01() {

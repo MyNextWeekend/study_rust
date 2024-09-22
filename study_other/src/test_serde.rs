@@ -23,7 +23,7 @@ impl Proper {
 
 #[cfg(test)]
 mod serde_test {
-    use super::Proper;
+    use super::*;
 
     #[test]
     fn test_01() {

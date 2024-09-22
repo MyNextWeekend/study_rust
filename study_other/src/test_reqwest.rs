@@ -1,17 +1,17 @@
-// Reqwest第三方包学习
-
 use std::collections::HashMap;
+
 
 struct HttpClient;
 
 impl HttpClient {
-    // 阻塞请求
+    /// 阻塞请求
     pub fn get_block(url: &str) -> Result<String, Box<dyn std::error::Error>> {
         let resp = reqwest::blocking::get(url)?.text()?;
         println!("拿到结果是: {}", resp);
         Ok(resp)
     }
-    // 异步get请求
+
+    /// 异步get请求
     pub async fn get(url: &str) -> Result<reqwest::Response, Box<dyn std::error::Error>> {
         let client = reqwest::Client::new(); //可以自定义客户端，重复利用
         let resp = client
@@ -22,7 +22,7 @@ impl HttpClient {
         Ok(resp)
     }
 
-    // 异步post请求
+    /// 异步post请求
     pub async fn post(url: &str, body: &HashMap<String, String>) -> Result<reqwest::Response, Box<dyn std::error::Error>> {
         let client = reqwest::Client::new(); //可以自定义客户端，重复利用
         let resp = client
@@ -36,10 +36,10 @@ impl HttpClient {
     }
 }
 
+
 #[cfg(test)]
 mod reqwest_test {
-    use std::collections::HashMap;
-    use super::HttpClient;
+    use super::*;
 
     //同步请求
     #[test]

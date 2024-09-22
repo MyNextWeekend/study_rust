@@ -1,26 +1,20 @@
-use clap::{Parser};
+use clap::Parser;
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
-struct Args {
+pub(crate) struct Args {
     /// Name of the person to greet
     #[arg(short, long)]
-    name: String,
+    pub(crate) name: String,
     /// Number of times to greet
     #[arg(short, long)]
-    count: u8,
+    pub(crate) count: u8,
 }
 
 #[cfg(test)]
 mod clap_test {
-    use clap::Parser;
-    use super::Args;
-
     #[test]
     fn test01() {
-        let args = Args::parse();
-        for _ in 0..args.count {
-            println!("hello {}",args.name)
-        }
+        println!("使用样例放在main.rs")
     }
 }
