@@ -1,5 +1,5 @@
 [workspace]
-members = ["study", "study_other", "study_tokio"]
+members = ["study_inner", "study_other", "study_async"]
 resolver = "2"
 
 [profile.release]

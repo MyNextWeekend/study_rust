@@ -1,5 +1,5 @@
 [package]
-name = "study_tokio"
+name = "study_async"
 version = "0.1.0"
 edition = "2021"
 
