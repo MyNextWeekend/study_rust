@@ -1,12 +1,10 @@
 use std::fs::File;
 use std::io;
-use thiserror::Error;
-
 
 // 主要用于lib项目中，用于聚合多种错误
 
 
-#[derive(Error, Debug)]
+#[derive(thiserror::Error, Debug)]
 pub enum DataStoreError {
     // 通过 #[error(transparent)] 让 source 和 Display 直接使用底层的错误
     #[error(transparent)]

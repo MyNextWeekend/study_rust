@@ -5,6 +5,7 @@
 
 mod test_sqlx;
 mod test_reqwest;
+mod test_tokio;
 
 #[tokio::main]
 async fn main() {
