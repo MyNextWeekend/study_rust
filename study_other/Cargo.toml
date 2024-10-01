@@ -11,5 +11,6 @@ env_logger = "0.9"                                              # 具体的日�
 calamine = "0.24"                                               # 读取excel
 anyhow = "1.0.82"
 thiserror = "1.0.58"
-clap = { version = "4.5.4", features = ["derive"] }
-chrono = "0.4.38"
+clap = { version = "4.5.4", features = ["derive"] }             # 命令行工具
+chrono = "0.4.38"                                               # 时间操作
+dotenv = "0.15.0"                                               # 读取环境变量

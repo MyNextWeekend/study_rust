@@ -9,6 +9,8 @@ mod test_env_logger;
 mod test_serde;
 mod test_thiserror;
 
+mod test_dotenv;
+
 use clap::Parser;
 use crate::test_clap::Args;
 
