@@ -7,6 +7,7 @@
 博客：[无](http://) 
 
 仓库主要用于学习，随便记录一些东西
+- design_patterns : 设计模式
 - study_inner : 学习rust内置包
 - study_async : 学习异步操作
 - study_other : 学习第三方包
