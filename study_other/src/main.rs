@@ -8,15 +8,18 @@ mod test_clap;
 mod test_env_logger;
 mod test_serde;
 mod test_thiserror;
-
 mod test_dotenv;
+mod test_indicatif;
 
-use clap::Parser;
-use crate::test_clap::Args;
 
 fn main() {
+    // 进度条
+    // test_indicatif::progress();
+
     // clap 使用样例
-    let args = Args::parse();
+    use clap::Parser;
+
+    let args = test_clap::Args::parse();
     for _ in 0..args.count {
         println!("hello {}", args.name)
     }
