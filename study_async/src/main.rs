@@ -9,5 +9,5 @@ mod test_tokio;
 
 #[tokio::main]
 async fn main() {
-    println!("Hello from study_tokio!");
+    println!("Hello from study_async!");
 }

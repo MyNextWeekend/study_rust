@@ -1,3 +1,6 @@
+/// 建造者模式
+/// 利用rust的所有权机制
+
 #[derive(Debug)]
 pub struct Request {
     url: String,
@@ -62,12 +65,11 @@ mod builder_test {
     #[test]
     fn test_01() -> Result<(), String> {
         let builder = RequestBuilder::new().url("https://some-url.com/task");
-        /// do something....
-
+        // do something....
         let builder = builder.method("POST")
             .header("content-type", "application/json")
             .body("good body");
-        /// do something....
+        // do something....
         let req = builder.clone().build()?;
         println!("{req:#?}");
 
