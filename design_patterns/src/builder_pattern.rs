@@ -65,7 +65,7 @@ mod builder_test {
         /// do something....
 
         let builder = builder.method("POST")
-            .header("Authorization", "Bearer 3IbIdmgetC2syZEpy7PxOqQbc77ZN4KkriMqeI7R1MPNLXGGQjn1hUf9y9IVquId")
+            .header("content-type", "application/json")
             .body("good body");
         /// do something....
         let req = builder.clone().build()?;
