@@ -29,7 +29,7 @@ enum ParsePersonError {
     InvalidAge(ParseIntError),
 }
 
-// 实现 FromStr trait
+// 实现 FromStr trait 自动获取 parse 能力
 impl FromStr for Person {
     type Err = ParsePersonError;
 
@@ -66,9 +66,17 @@ mod trait_test {
     fn test02() {
         let input = "Alice,30";
 
-        match Person::from_str(input) {
-            Ok(person) => println!("Parsed Person: {:?}", person),
-            Err(e) => println!("Failed to parse Person: {:?}", e),
-        }
+        // match Person::from_str(input) {
+        //     Ok(person) => println!("Parsed Person: {:?}", person),
+        //     Err(e) => println!("Failed to parse Person: {:?}", e),
+        // }
+
+        // match input.parse::<Person>() {
+        //     Ok(person) => println!("Parsed Person: {:?}", person),
+        //     Err(e) => println!("Failed to parse Person: {:?}", e),
+        // }
+
+        let p: Person = input.parse().unwrap();
+        println!("Person:{:?}", p)
     }
 }
