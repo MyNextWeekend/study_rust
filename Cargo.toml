@@ -9,4 +9,6 @@ opt-level = "z"
 panic = "abort"
 
 
+[profile.dev]
+codegen-units = 1  # 使编译单元数量为 1，减少并行度
 

@@ -12,6 +12,7 @@ mod test_thread;
 mod test_time;
 mod test_trait;
 mod test_vec;
+mod test_iter;
 
 fn main() {
     println!("Hello from study!");
