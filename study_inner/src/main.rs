@@ -13,6 +13,7 @@ mod test_time;
 mod test_trait;
 mod test_vec;
 mod test_iter;
+mod test_path;
 
 fn main() {
     println!("Hello from study!");
