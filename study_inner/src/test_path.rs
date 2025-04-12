@@ -6,7 +6,7 @@ fn do_something() {
     println!("{:?}", root.join("12")); // 这里类型做了转换
 
 
-    let mut path_buf = PathBuf::new();
+    let path_buf = PathBuf::new();
     let mut path_buf = path_buf.join("hello");
     path_buf.push("world");
     println!("{}", path_buf.display());
