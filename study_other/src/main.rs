@@ -10,7 +10,7 @@ mod test_serde;
 mod test_thiserror;
 mod test_dotenv;
 mod test_indicatif;
-
+mod test_once_cell;
 
 fn main() {
     // 进度条
@@ -19,8 +19,6 @@ fn main() {
     // clap 使用样例
     use clap::Parser;
 
-    let args = test_clap::Args::parse();
-    for _ in 0..args.count {
-        println!("hello {}", args.name)
-    }
+    let args = test_clap::MyEnum::parse();
+    println!("{:?}", args);
 }
