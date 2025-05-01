@@ -3,7 +3,7 @@ use clap::Parser;
 /// bilibili下载器
 #[derive(Debug, Parser)]
 #[command(author, version, about, long_about = None)]
-struct Bilibili {
+pub struct Bilibili {
     /// The input file to use
     #[arg(short, long)]
     input: String,
@@ -29,7 +29,7 @@ impl Bilibili {
 /// 抖音下载器
 #[derive(Debug, Parser)]
 #[command(author, version, about, long_about = None)]
-struct Douyin {
+pub struct Douyin {
     /// 下载链接
     #[arg(short, long)]
     input: String,
@@ -56,7 +56,7 @@ impl Douyin {
 /// 易用下载器
 #[derive(Debug, Parser)]
 #[command(author, version, about, long_about = None)]
-enum MyEnum {
+pub enum MyEnum {
     Bilibili(Bilibili),
     Douyin(Douyin),
 }
