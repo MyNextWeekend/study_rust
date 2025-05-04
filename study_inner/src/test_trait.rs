@@ -41,14 +41,16 @@ impl FromStr for Person {
         }
 
         let name = parts[0].to_string();
-        let age = parts[1].parse::<u8>().map_err(ParsePersonError::InvalidAge)?; // 转换并处理错误
+        let age = parts[1]
+            .parse::<u8>()
+            .map_err(ParsePersonError::InvalidAge)?; // 转换并处理错误
 
         Ok(Person { name, age })
     }
 }
 
 // 实现 TryFrom trait 自动获取 try_into 能力
-impl TryFrom<&str> for Person{
+impl TryFrom<&str> for Person {
     type Error = ParsePersonError;
 
     fn try_from(value: &str) -> Result<Self, Self::Error> {
@@ -59,7 +61,9 @@ impl TryFrom<&str> for Person{
         }
 
         let name = parts[0].to_string();
-        let age = parts[1].parse::<u8>().map_err(ParsePersonError::InvalidAge)?; // 转换并处理错误
+        let age = parts[1]
+            .parse::<u8>()
+            .map_err(ParsePersonError::InvalidAge)?; // 转换并处理错误
 
         Ok(Person { name, age })
     }
@@ -76,23 +80,13 @@ mod trait_test {
             age: 24,
         };
         cali.eat();
-        cali.run();
+        cali.run(); // 可以调用 trait 的默认实现
         println!("{}的年龄是{}", cali.name, cali.age)
     }
 
     #[test]
     fn test02() {
         let input = "Alice,30";
-
-        // match Person::from_str(input) {
-        //     Ok(person) => println!("Parsed Person: {:?}", person),
-        //     Err(e) => println!("Failed to parse Person: {:?}", e),
-        // }
-
-        // match input.parse::<Person>() {
-        //     Ok(person) => println!("Parsed Person: {:?}", person),
-        //     Err(e) => println!("Failed to parse Person: {:?}", e),
-        // }
 
         let p: Person = input.parse().unwrap();
         println!("Person:{:?}", p)
@@ -101,16 +95,6 @@ mod trait_test {
     #[test]
     fn test03() {
         let input = "Alice,30";
-
-        // match Person::from_str(input) {
-        //     Ok(person) => println!("Parsed Person: {:?}", person),
-        //     Err(e) => println!("Failed to parse Person: {:?}", e),
-        // }
-
-        // match input.parse::<Person>() {
-        //     Ok(person) => println!("Parsed Person: {:?}", person),
-        //     Err(e) => println!("Failed to parse Person: {:?}", e),
-        // }
 
         let p: Person = input.try_into().unwrap();
         println!("Person:{:?}", p)
