@@ -16,3 +16,4 @@ chrono = "0.4.38"                                               # 时间操作
 dotenv = "0.15.0"                                               # 读取环境变量
 indicatif = "0.17.8"
 once_cell = "1.21.3"
+rayon = "1.10.0"

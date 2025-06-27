@@ -33,6 +33,24 @@ opt-level = "z"
 panic = "abort"
 ```
 
+### 添加依赖
+```shell
+# 方案一
+# 添加依赖到 study_other 子项目
+cargo add rayon --manifest-path study_other/Cargo.toml
+
+# 方案二
+# 根目录 Cargo.toml
+[workspace.dependencies]
+serde = "1.0"
+
+# 在子项目中引用
+[dependencies]
+serde.workspace = true
+```
+
+
+
 ### 新增三个可执行项目
 
 ```shell

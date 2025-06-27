@@ -11,6 +11,7 @@ mod test_thiserror;
 mod test_dotenv;
 mod test_indicatif;
 mod test_once_cell;
+mod test_rayon;
 
 fn main() {
     // 进度条
