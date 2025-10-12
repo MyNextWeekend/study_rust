@@ -1,9 +1,8 @@
-use rayon::prelude::*;
-
 #[cfg(test)]
 mod rayon_tests {
 
-    use super::*;
+    use rayon::iter::{IntoParallelRefMutIterator, ParallelIterator};
+
     #[test]
     fn it_works() {
         let mut arr = [0, 7, 9, 11];
