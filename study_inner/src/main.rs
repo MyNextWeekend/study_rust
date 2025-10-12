@@ -14,6 +14,7 @@ mod test_trait;
 mod test_vec;
 mod test_iter;
 mod test_path;
+mod test_pin;
 
 fn main() {
     println!("Hello from study!");
